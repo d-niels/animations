@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<scene t="5" dt=".01">
+    <simplegravity gx="0" gy="-196"/>
+    <particle id="0" vx="100" vy="100" radius="20"/>
+    <particle id="1" x="50" y="50" vx="100" vy="100" m="10" radius="20" r="0" g="0" b="0"/>
+    <plane id="0" x="-50" y="-50" nx="1" ny="1" r="0" g="0" b="0"/>
+</scene>

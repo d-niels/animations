@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<scene t="20" dt=".01">
+    <centripetalforce/>
+    <particle id="0" x="250" y="0" vx="0" vy="100" m="10" radius="20" r="0" g="0" b="0"/>
+    <particle id="1" radius="10" r="255" g="0" b="0"/>
+</scene>
