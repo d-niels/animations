@@ -1,11 +1,16 @@
 import numpy as np
 import stepper
 import forces
+import collisions
 
 
 # Object to hold data for each frame
 class Scene(object):
-    def __init__(self, num_particles, t_exit, dt, dimensions=2):
+    def __init__(self, num_particles, t_exit, dt, dimensions=2, collision=False, collision_type=None):
+        # Collision type
+        self.collision = collision
+        self.collision_type = collision_type
+
         # Particles
         self.q = [0 for i in range(num_particles * dimensions)]
         self.q_dot = [0 for i in range(num_particles * dimensions)]
@@ -25,6 +30,8 @@ class Scene(object):
         self.dt = dt
 
     def step(self):
+        if self.collision:
+            collisions.check_collision(self)
         self.q, self.q_dot = stepper.explicit_euler(
             self.q, self.q_dot, forces.total_grad_E(self), self.m, self.dt)
 

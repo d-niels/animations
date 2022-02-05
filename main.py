@@ -6,10 +6,11 @@ import parseXML
 t = 0
 
 # Scene object initialization
-scene = parseXML.get_data('./tests/test-vortex.xml')
+file = 'test-vortex.xml'
+scene = parseXML.get_data('./tests/' + file)
 
 # Create window and draw initial frame
-sim = simulator.Frame()
+sim = simulator.Frame(title=file[:len(file) - 4])
 sim.new_frame(scene, 0)
 
 # Run the simulation

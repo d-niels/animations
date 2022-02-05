@@ -14,6 +14,7 @@ def get_args(d):
 
     return args[:len(args)-2]
 
+
 # Construct initial scene using data from an XML file and return the scene
 def get_data(path_to_xml):
     tree = ET.parse(path_to_xml)

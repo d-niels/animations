@@ -4,10 +4,19 @@ import numpy as np
 fs = []
 
 
+# Class for forces
+class Force(object):
+    def __init__(self, force):
+        fs.append(force)
+
+    def calculate_grad_E(self):
+        raise NotImplementedError
+
+
 # Constant gravity force
-class SimpleGravity(object):
+class SimpleGravity(Force):
     def __init__(self, gx=0, gy=-9.8):
-        fs.append(self)
+        super().__init__(self)
         self.const = [gx, gy]
 
     def calculate_grad_E(self, scene):
@@ -20,9 +29,9 @@ class SimpleGravity(object):
         return -grad_E
 
 
-class CentripetalForce(object):
+class CentripetalForce(Force):
     def __init__(self):
-        fs.append(self)
+        super().__init__(self)
 
     def calculate_grad_E(self, scene):
         grad_E = np.array([0 for i in range(len(scene.q))])
